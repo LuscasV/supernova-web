@@ -9,18 +9,22 @@ const BannerSection = () => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setVisible(entry.isIntersecting);
+                if (entry.isIntersecting) {
+                    setVisible(true);
+                    observer.unobserve(entry.target); // 👈 para de observar depois da primeira vez
+                }
             },
             { threshold: 0.3 }
-        )
+        );
 
-        if (bannerRef.current) observer.observe(bannerRef.current)
-        return () => observer.disconnect()            
-    }, [])
+        if (bannerRef.current) observer.observe(bannerRef.current);
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <Banner
-        ref={bannerRef} className={visible ? "visible" : ""}
+            ref={bannerRef} className={visible ? "visible" : ""}
         >
             <img src={banner} alt="banner" />
             <Text>A MELHOR LOJA DE ROUPAS</Text>

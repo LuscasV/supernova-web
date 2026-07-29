@@ -1,5 +1,5 @@
 import * as S from "./styles"
-import  CartButton from "../CartButton"
+import Button from "../Button"
 
 import camiseta from "../../assets/camiseta.jpg"
 import heart from "../../assets/heart.svg"
@@ -13,29 +13,9 @@ const ProductCard = ({ product }) => {
     const colors = ["white", "black", "red"]
     
     return (
-        <S.Card className="container">
-            <S.ProductImage src={camiseta} alt="Camiseta" />
-            <S.CardContainer>
-            <S.Title>{product.name}</S.Title>
-            <S.Value>{product.price}</S.Value>
-            <S.ColorContainer>
-                {colors.map((color, index) => (
-                    <S.ColorOption 
-                    key={index}
-                    color={color}
-                    isSelected={selectedColor === color}
-                    onClick={() => setSelectedColor(color)}
-                    />
-                ))}
-            </S.ColorContainer>
-            <S.Select>
-                <option value="P">tamanho</option>
-                <option value="P">P</option>
-                <option value="M">M</option>
-                <option value="G">G</option>
-            </S.Select>
-            <CartButton />
-            </S.CardContainer>
+        <S.Card>
+            <S.ImageWrapper>
+            <S.ProductImage src={product.image} alt="Camiseta" />
             <S.Icon onClick={() => setIsFavorite(!isFavorite)}>
                 {isFavorite ? (
                     <S.HeartFilled
@@ -48,6 +28,33 @@ const ProductCard = ({ product }) => {
                     </S.HeartOutline>
                 )}
             </S.Icon>
+            
+            <S.HoverOverlay>
+                <S.FullWidthButton variant="secondary" size="sm">Adicionar ao carrinho</S.FullWidthButton>
+                <S.Select>
+                <option value="P">tamanho</option>
+                <option value="P">P</option>
+                <option value="M">M</option>
+                <option value="G">G</option>
+                </S.Select>
+            </S.HoverOverlay>
+            </S.ImageWrapper>
+
+            <S.CardContainer>
+            <S.Title>{product.name}</S.Title>
+            <S.Value>R$ {product.price}</S.Value>
+            <S.ColorContainer>
+                {colors.map((color, index) => (
+                    <S.ColorOption 
+                    key={index}
+                    color={color}
+                    isSelected={selectedColor === color}
+                    onClick={() => setSelectedColor(color)}
+                    />
+                ))}
+            </S.ColorContainer>
+            </S.CardContainer>
+            
             
         </S.Card>
     )

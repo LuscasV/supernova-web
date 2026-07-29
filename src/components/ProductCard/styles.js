@@ -1,20 +1,40 @@
 import styled from "styled-components";
+import Button from "../Button"
 
 export const Card = styled.div`
     width: 290px;
     height: 100%;
     position: relative;
-    overflow: visible;
 
-    .container {
-    max-width: 1280px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
+`
+export const HoverOverlay = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
+    padding: 1rem;
+
+    background: rgba(226, 226, 226, 0.3);
+
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.5s ease;
+`
+
+export const ImageWrapper = styled.div`
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+
+    &:hover ${HoverOverlay} {
+        opacity: 1;
+        transform: translateY(0);
     }
 `
 
@@ -27,29 +47,26 @@ export const CardContainer = styled.div`
 
 export const ProductImage = styled.img`
         width: 100%;
-        height: 400px;
+        height: 100%;
         object-fit: cover;
 `
 
 export const Title = styled.span`
     display: block;
-    font-size: 1.2rem;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
+    font-size: 1.1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.6rem;
 `
 
 export const Value = styled.span`
-    font-family: "Roboto", sans-serif;
     font-size: 1rem;
     font-weight: bold;
 `
 
 export const Icon = styled.div`
     position: absolute;
-    top: 1rem; /* TOP, LEFT E TRANSLATE CENTRALIZA O TEXT DENTRO DO BANNER*/
-    left: 16rem;
+    top: 12px; /* TOP, LEFT E TRANSLATE CENTRALIZA O TEXT DENTRO DO BANNER*/
+    right: 12px;
     z-index: 2;
     cursor: pointer;
 `
@@ -90,6 +107,7 @@ export const ColorContainer = styled.div`
     display: flex;
     gap: 8px;
     margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
     justify-content: center;
 `
 
@@ -108,13 +126,20 @@ export const ColorOption = styled.div`
 `
 
 export const Select = styled.select`
-    padding: 8px;
+    width: 95%;
+    padding: 4px;
     border-radius: 8px;
-    background-color: transparent;
+    background-color: #fff;
     border: 1px solid #000;
-    margin-top: 1.2rem;
-    margin-bottom: 0.3rem;
-    font-size: 1.2rem;
-    font-family: "Roboto", sans-serif;
+    margin-top: 0.2rem;
+    margin-bottom:0.5rem;
+    font-size: 16px;
     font-weight: 400;
+
+    text-align: center;
+    cursor: pointer;
 `
+
+export const FullWidthButton = styled(Button)`
+    width: 95%;
+`;

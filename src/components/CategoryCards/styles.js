@@ -36,7 +36,7 @@ export const CategoryCard = styled.div`
         background-color: #fff;
         padding: 0.3rem 0.9rem;
         border-radius:12px;
-        font-size:1.5rem;
+        font-size:1.3rem;
         z-index: 1;
     }
 `

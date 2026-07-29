@@ -5,7 +5,7 @@ export const Banner = styled.section`
     width: 100%;
     height: 750px;
     overflow: hidden;
-    margin: 4rem 0 2rem 0;
+    margin-top: 80px;
 
     position: relative; /* CAPTURA O TEXT DENTRO DO BANNER */
     opacity: 0;
@@ -27,6 +27,8 @@ export const Banner = styled.section`
 
 export const Text = styled.span`
     position: absolute;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
     font-size: 5rem;
     color: #fff;
     top: 50%; /* TOP, LEFT E TRANSLATE CENTRALIZA O TEXT DENTRO DO BANNER*/
@@ -39,11 +41,13 @@ export const Text = styled.span`
 
 export const Div = styled.div`
     display: flex;
-    align-items:center;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin-top: 3rem;
 `
 
 export const Title = styled.h1`
-    font-size: 48px;
+    font-size: 32px;
+    margin-bottom: 1rem;
 `

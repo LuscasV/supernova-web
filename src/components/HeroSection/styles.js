@@ -17,7 +17,6 @@ img {
 export const Subtitle = styled.p`
     background-color: #000;
     color: #fff;
-    font-family: "Roboto", sans-serif;
     padding: 0.4rem;
     text-align: center;
 
