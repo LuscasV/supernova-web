@@ -362,6 +362,14 @@ export const LoginForm = styled.form`
         font-size: 12px;
         text-align: start;
     }
+
+    .match-error {
+        display: block;
+        color: ${colors.red};
+        font-size: 12px;
+        margin: 0 0 12px;
+        text-align: start;
+    }
 `
 
 export const ForgotPassword = styled(Link)`
