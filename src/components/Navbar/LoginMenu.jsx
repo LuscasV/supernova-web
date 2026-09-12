@@ -3,6 +3,9 @@ import { Link } from "react-router-dom"
 import InputField from "../InputField"
 import Button from "../Button"
 import * as S from "./styles"
+
+import ForgotPassword from "./Auth/ForgotPassword"
+
 import { useState } from "react"
 
 const LoginMenu = ({ loginRef }) => {
@@ -166,7 +169,7 @@ const LoginMenu = ({ loginRef }) => {
                                 handleChange={handleChange}
                                 handleBlur={handleBlur}
                             />
-                            <S.ForgotPassword to="#">esqueci minha senha</S.ForgotPassword>
+                            <S.ForgotPassword onClick={() => setMode("forgot-password")}>esqueci minha senha</S.ForgotPassword>
                             <Button type="button" size="md">entrar</Button>
                             <p>não tem cadastro?</p>
                             <Button size="md" variant="secondary" onClick={() => setMode("register-step-1")}>criar conta</Button>
@@ -175,6 +178,13 @@ const LoginMenu = ({ loginRef }) => {
                         </S.LoginForm>
                     </>
                 )}
+                
+                {mode === "forgot-password" && (
+                    <ForgotPassword
+                    onBack={() => setMode("login")}
+                    />
+                )}
+
                 {mode === "register-step-1" && (
                     <>
                         <h1>crie seu cadastro</h1>
@@ -262,7 +272,7 @@ const LoginMenu = ({ loginRef }) => {
 
                     <>
                         <h1>crie seu cadastro</h1>
-                        <p>agora defina sua senha de acesso</p>
+                        <p className="menu-password">agora defina sua senha de acesso</p>
                         <S.LoginForm>
                             <InputField
                                 field="password"

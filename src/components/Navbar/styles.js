@@ -316,6 +316,10 @@ export const LoginModal = styled.div`
     opacity: 0;
     animation: fadeIn 0.50s ease forwards;
 
+    .menu-password {
+        margin-bottom: 14px;
+    }
+
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -416,4 +420,11 @@ export const ButtonsDiv = styled.div`
     button {
         flex: 1;
     }
+`
+
+export const SpanLink = styled.span `
+    margin: 0 auto 1rem auto;
+    font-size: 0.9rem;
+    text-align: center;
+
 `
