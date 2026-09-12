@@ -5,6 +5,7 @@ import Male from './pages/Male'
 import Female from './pages/Female'
 import Acessorios from './pages/Accessories'
 import Shoes from './pages/Shoes'
+import ResetPassword from './pages/ResetPassword'
 
 const AppRoutes = () => {
     return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
         <Route path='/female' element={<Female />} />
         <Route path='/accessories' element={<Acessorios />} />
         <Route path='/shoes' element={<Shoes />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
     </Routes>
     )
 }
