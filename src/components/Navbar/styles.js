@@ -48,11 +48,6 @@ export const NavContainer = styled.nav`
         font-weight: 400;
     }
 
-    .icons {
-        display: flex;
-        gap: 1.5rem;
-    }
-
     svg {
         cursor: pointer;
     }
@@ -270,6 +265,22 @@ export const CartMenu = styled.div`
         text-align: center;
         font-size: rem;
         color: #000;
+    }
+`
+
+export const Icons = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    svg {
+        display: block;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 `
 
